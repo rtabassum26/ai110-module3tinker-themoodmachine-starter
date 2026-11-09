@@ -30,7 +30,9 @@ def evaluate_rule_based(posts: List[str], labels: List[str]) -> float:
         # reason = analyzer.explain(text)
         # print(f'"{text}" -> predicted={predicted_label}, true={true_label} ({reason})')
 
-        print(f'"{text}" -> predicted={predicted_label}, true={true_label}')
+        # print(f'"{text}" -> predicted={predicted_label}, true={true_label}')
+        reason = analyzer.explain(text)
+        print(f'"{text}" -> predicted={predicted_label}, true={true_label} ({reason})')
 
     if total == 0:
         print("\nNo labeled examples to evaluate.")
@@ -80,6 +82,7 @@ def run_interactive_loop() -> None:
         # reason = analyzer.explain(user_input)
         # print(f"Model: {label} ({reason})")
         print(f"Model: {label}")
+        print(analyzer.explain(user_input))
 
 
 if __name__ == "__main__":
